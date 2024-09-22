@@ -17,12 +17,13 @@ import java.util.List;
 public class Test1 {
 
 
+
     public static void main(String[] args) {
         //Bu anahtar, Selenium WebDriver'a hangi ChromeDriver'ın kullanılacağını belirtir.
-        System.setProperty("webdriver.chrome.driver", "drivers/chromeDriverbeta.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"); // Chrome Beta'nın yolu
-        WebDriver driver = new ChromeDriver(options);
+      //  System.setProperty("webdriver.chrome.driver", "drivers/chromeDriverbeta.exe");
+      //  ChromeOptions options = new ChromeOptions();
+       // options.setBinary("C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"); // Chrome Beta'nın yolu
+      //  WebDriver driver = new ChromeDriver(options);
 
 
         //-------checkbox---------ilk basta hata verince kutucuga basınca. onu da isme basinca ile secmesiyle yaptik.
