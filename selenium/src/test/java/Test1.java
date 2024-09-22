@@ -217,6 +217,9 @@ public class Test1 {
 
 
 
+
+
+
         //------------------formlar
        /* driver.get("https://demoqa.com/automation-practice-form");
         timeWait(2000);
@@ -321,6 +324,107 @@ public class Test1 {
 
 
         //-------------------web tables
+
+       /* driver.get("https://demoqa.com/webtables");
+        driver.manage().window().maximize();
+        timeWait(2000);
+        List<WebElement> tableColumnNames = driver.findElements(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]"));
+        System.out.println("Toplam öğe sayısı: " + tableColumnNames.size());
+        for(WebElement element : tableColumnNames){
+            System.out.println(element.getText());
+        }
+
+        System.out.println("*******************************");
+        //div icinde div listee olduğu için böyle yaptik altaki gibi yapmadik
+        List<WebElement> peopleList = driver.findElements(By.xpath("//div[@class='rt-tbody']//div[@class='rt-tr-group']"));
+
+     //   List<WebElement> peopleList = driver.findElements(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[2]"));
+        System.out.println("Toplam öğe sayısı: " + peopleList.size());
+        for(WebElement people : peopleList){
+            System.out.println(people.getText());
+            System.out.println("-------------");
+        }
+
+        timeWait(2000);
+        WebElement buton = driver.findElement(By.id("addNewRecordButton"));
+        buton.click();
+
+        timeWait(1000);
+        WebElement firstName = driver.findElement(By.id("firstName"));
+        firstName.sendKeys("İsmail");
+
+        timeWait(1000);
+        WebElement lastName = driver.findElement(By.id("lastName"));
+        lastName.sendKeys("Türüt");
+
+        timeWait(1000);
+        WebElement userEmail = driver.findElement(By.id("userEmail"));
+        userEmail.sendKeys("ismailturut@gmail.com");
+
+        timeWait(1000);
+        WebElement age = driver.findElement(By.id("age"));
+        age.sendKeys("50");
+
+        timeWait(1000);
+        WebElement salary = driver.findElement(By.id("salary"));
+        salary.sendKeys("40000");
+
+        timeWait(1000);
+        WebElement department = driver.findElement(By.id("department"));
+        department.sendKeys("IT");
+
+        timeWait(1000);
+        WebElement submit = driver.findElement(By.id("submit"));
+        submit.click();
+
+
+        timeWait(1000);
+        //edit buton
+        WebElement editButon = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]/div/div[7]/div/span[1]"));
+        editButon.click();
+
+        timeWait(1000);
+        WebElement newEmail = driver.findElement(By.xpath("/html/body/div[5]/div/div/div[2]/form/div[3]/div[2]/input"));
+        newEmail.clear();
+        timeWait(1000);
+        newEmail.sendKeys("kirktansonra@gmail.com");
+
+        timeWait(1000);
+        WebElement editSubmitButon = driver.findElement(By.id("submit"));
+        editSubmitButon.click();
+
+        timeWait(1000);
+        WebElement delete = driver.findElement(By.id("delete-record-4"));
+        delete.click();
+
+        WebElement searh = driver.findElement(By.id("searchBox"));
+        searh.sendKeys("Ki");*/
+
+
+
+
+
+
+        //---------------tables
+       /* driver.get("https://www.w3schools.com/html/html_tables.asp");
+        List<WebElement> tableList = driver.findElements(By.xpath("/html/body/div[5]/div[1]/div[1]/div[3]/div/table/tbody/tr"));
+        System.out.println(tableList.size());
+        for(WebElement element : tableList){
+            System.out.println(element.getText());
+        }*/
+
+        //sadece aylari al
+    /*   driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_table_test");
+        driver.switchTo().frame("iframeResult");
+        List<WebElement> tableList = driver.findElements(By.xpath("/html/body/table/tbody/tr/td[1]"));
+        System.out.println(tableList.size());
+        for(WebElement element : tableList){
+            System.out.println(element.getText());
+        }*/
+
+
+        
+
 
 
 
