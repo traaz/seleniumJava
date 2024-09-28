@@ -20,10 +20,10 @@ public class Test1 {
 
     public static void main(String[] args) {
         //Bu anahtar, Selenium WebDriver'a hangi ChromeDriver'ın kullanılacağını belirtir.
-      //  System.setProperty("webdriver.chrome.driver", "drivers/chromeDriverbeta.exe");
-      //  ChromeOptions options = new ChromeOptions();
-       // options.setBinary("C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"); // Chrome Beta'nın yolu
-      //  WebDriver driver = new ChromeDriver(options);
+        System.setProperty("webdriver.chrome.driver", "drivers/chromeDriverbeta.exe");
+       ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"); // Chrome Beta'nın yolu
+        WebDriver driver = new ChromeDriver(options);
 
 
         //-------checkbox---------ilk basta hata verince kutucuga basınca. onu da isme basinca ile secmesiyle yaptik.
@@ -422,6 +422,129 @@ public class Test1 {
         for(WebElement element : tableList){
             System.out.println(element.getText());
         }*/
+
+
+      driver.get("https://demoqa.com/webtables");
+        driver.manage().window().maximize();
+
+        String isim = "İsmail";
+        String soyisim = "Deneme";
+
+        timeWait(2000);
+        WebElement buton = driver.findElement(By.id("addNewRecordButton"));
+        buton.click();
+
+        timeWait(1000);
+        WebElement firstName = driver.findElement(By.id("firstName"));
+        firstName.sendKeys("İsmail");
+
+
+        WebElement lastName = driver.findElement(By.id("lastName"));
+        lastName.sendKeys("Türüt");
+
+
+        WebElement userEmail = driver.findElement(By.id("userEmail"));
+        userEmail.sendKeys("ismailturut@gmail.com");
+
+
+        WebElement age = driver.findElement(By.id("age"));
+        age.sendKeys("50");
+
+
+        WebElement salary = driver.findElement(By.id("salary"));
+        salary.sendKeys("40000");
+
+
+        WebElement department = driver.findElement(By.id("department"));
+        department.sendKeys("IT");
+
+        timeWait(1000);
+        WebElement submit = driver.findElement(By.id("submit"));
+        submit.click();
+
+
+        //ikinci kayit
+
+        timeWait(2000);
+        driver.findElement(By.id("addNewRecordButton")).click();
+
+
+
+        WebElement firstName2 = driver.findElement(By.id("firstName"));
+        firstName2.sendKeys("İsmail");
+
+
+        WebElement lastName2 = driver.findElement(By.id("lastName"));
+        lastName2.sendKeys("Deneme");
+
+
+        WebElement userEmail2 = driver.findElement(By.id("userEmail"));
+        userEmail2.sendKeys("deneme@gmail.com");
+
+
+        WebElement age2 = driver.findElement(By.id("age"));
+        age2.sendKeys("50");
+
+
+        WebElement salary2 = driver.findElement(By.id("salary"));
+        salary2.sendKeys("40000");
+
+
+        WebElement department2 = driver.findElement(By.id("department"));
+        department2.sendKeys("IT");
+
+        timeWait(1000);
+        WebElement submit2 = driver.findElement(By.id("submit"));
+        submit2.click();
+
+        timeWait(2000);
+        WebElement searh = driver.findElement(By.id("searchBox"));
+        searh.sendKeys("İsmail");
+        List<WebElement> peopleListAd = driver.findElements(By.xpath("//div[@class='rt-tbody']//div[@class='rt-tr-group']"));
+        List<WebElement> peopListSurname = driver.findElements(By.xpath("//div[@class='rt-tbody']//div[@class='rt-tr-group']//div[@class='rt-td']"));
+
+        for(WebElement ad : peopleListAd){
+            System.out.println(ad.getText());
+        }
+        System.out.println("*************");
+        for(WebElement soyad : peopListSurname){
+            System.out.println(soyad.getText());
+        }
+
+
+
+
+        List<WebElement> peopleList = driver.findElements(By.xpath("//div[@class='rt-tbody']//div[@class='rt-tr-group']"));
+
+        for (WebElement row : peopleList) { //herbir satir
+           // System.out.println(row.getText());
+            // Her satır için, isim ve soyadı hücrelerini bul
+            List<WebElement> cells = row.findElements(By.xpath(".//div[@class='rt-td']"));
+
+            if (cells.size() > 1) { // İki hücre varsa
+                System.out.println(cells.get(0).getText());
+                String yeniisim = cells.get(0).getText(); // 1. kolon (isim)
+                String yenisoyisim = cells.get(1).getText(); // 2. kolon (soyadı)
+
+                if (yeniisim.equals(isim) && yenisoyisim.equals(soyisim)) {
+                    System.out.println("true");
+                    WebElement spanElement = row.findElement(By.xpath(".//span")); // İlk span'ı bulma
+                    spanElement.click(); // Span elementine tıklama
+                    timeWait(3000);
+                    // Burada gerekli işlemi yapabilirsiniz
+                    break; // Eşleşme bulunduğunda döngüden çıkabilirsiniz
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
 
 
         
